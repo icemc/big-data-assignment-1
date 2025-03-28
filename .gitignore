@@ -36,3 +36,9 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### output directory
+output/
+
+### ignore all jar files
+*.jar

@@ -15,22 +15,32 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class HadoopWordCount extends Configured implements Tool {
 
 	public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
 
 		private final static IntWritable one = new IntWritable(1);
-		private Text word = new Text();
+		private Text wordOrNumber = new Text();
+
+		private static final Pattern WORD_PATTERN = Pattern.compile("^[a-z_-]{6,24}$");
+		private static final Pattern NUMBER_PATTERN = Pattern.compile("^-?[0-9]+([.,][0-9]+)?$", Pattern.MULTILINE);
 
 		@Override
 		public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 
-			String[] splitLine = value.toString().split(" ");
+			String[] splitLine = value.toString().toLowerCase().split("[^a-z0-9.,_-]+");
 
-			for (String w : splitLine) {
-				word.set(w);
-				context.write(word, one);
+			for (String token : splitLine) {
+				if (WORD_PATTERN.matcher(token).matches() || (NUMBER_PATTERN.matcher(token).matches() && token.length() >= 4 && token.length() <= 16)) {
+
+					//Remove hyphens that occur before a valid letter in words
+					//TODO Remove hyphens at the end of words and do same for underscores (before and after word)
+					String cleaned = WORD_PATTERN.matcher(token).matches() ? token.replaceAll("^-+(?=[a-zA-Z])", "") : token;
+					wordOrNumber.set(cleaned);
+					context.write(wordOrNumber, one);
+				}
 			}
 		}
 	}
@@ -73,7 +83,12 @@ public class HadoopWordCount extends Configured implements Tool {
 	}
 
 	public static void main(String[] args) throws Exception {
+		long startTime = System.currentTimeMillis();
 		int ret = ToolRunner.run(new Configuration(), new HadoopWordCount(), args);
+
+		long endTime = System.currentTimeMillis();
+		System.out.println("Job Execution Time: " + (endTime - startTime) + " ms");
+
 		System.exit(ret);
 	}
 }

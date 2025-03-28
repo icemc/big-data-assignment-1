@@ -1,0 +1,63 @@
+
+1. Hardware Setup
+
+OS Name:	                        Microsoft Windows 11 Pro
+System Model:	                    Blade 15 (2022) - RZ09-0421
+Processor:	                        12th Gen Intel(R) Core(TM) i7-12800H, 2400 Mhz, 14 Core(s), 20 Logical Processor(s)
+GPU:                                NVIDIA GeForce RTX 3070 Ti
+Installed Physical Memory (RAM):	64.0 GB
+
+
+2. Compile all Java classes and build jar file (create a directory called output in the root directory. The last command builds the .jar file in this directory)
+
+- Windows Powershell
+    $classpath = ($env:HADOOP_HOME + "\share\hadoop\common\* " + $env:HADOOP_HOME + "\share\hadoop\mapreduce\*") -replace ' ', ';'
+    javac -classpath $classpath ./src/main/java/*.java -d ./output
+    cd output
+    jar -cvf ./HadoopWordCount.jar *.class
+
+- Linux
+    javac -d ./output -classpath $(echo $HADOOP HOME/share/hadoop/common/*.jar \
+    $HADOOP HOME/share/hadoop/mapreduce/*.jar | tr ' ' ':') ./src/main/java/*.java
+    cd output
+    jar -cvf ./HadoopWordCount.jar *.class
+
+
+
+Research Questions
+
+a. 1 & 2 The modified source codes can be found the src folder with other additional hadoop job implementations that will be used to answer the upcoming questions
+
+b.
+    0. The hadoop job HadoopWordCount and HadoopWordPairs will be executed and their results will serve as input for the other corresponding jobs
+
+        i.  Run: hadoop jar ./HadoopWordCount.jar HadoopWordCount <input to AA articles> <output path>
+            Stats: Job Execution Time: 18974 ms
+
+        ii. Run: hadoop jar ./HadoopWordCount.jar HadoopWordPairs <input to AA articles> <output path>
+            Stats: Job Execution Time: 25085 ms
+
+
+    1. Find all individual words (not numbers) with a total count of exactly 1,000.
+
+        Run: hadoop jar ./HadoopWordCount.jar WordCountFilter <path to HadoopWordCount job output> <output path>
+        Stats: Job Execution Time: 2629 ms
+
+    2. Find all word pairs (not numbers) with a total count of exactly 1,000
+
+        Run: hadoop jar ./HadoopWordCount.jar WordPairsFilter <path to HadoopWordPairs job output> <output path>
+        Stats: Job Execution Time: 10765 ms
+
+    3. Find the top-100 most frequent individual words (not numbers).
+
+        Run: hadoop jar ./HadoopWordCount.jar WordCountTop <path to HadoopWordCount job output> <output path>
+        Stats: Job Execution Time: 2697 ms
+
+    4. Find the top-100 most frequent pairs of tokens, where the first token is a number and the
+       second token is a word
+
+        Run: hadoop jar ./HadoopWordCount.jar NumberWordPairsTop <path to HadoopWordPairs job output> <output path>
+        Stats: Job Execution Time: 4711 ms
+
+
+//TODO repeat process for articles AB, AC ...., AK

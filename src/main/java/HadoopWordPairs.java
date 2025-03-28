@@ -15,26 +15,45 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.regex.Pattern;
 
 public class HadoopWordPairs extends Configured implements Tool {
 
 	public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
 		private final static IntWritable one = new IntWritable(1);
 		private Text pair = new Text();
-		private Text lastWord = new Text();
+		private Queue<String> window = new LinkedList<>(); // Sliding window for m=2
+
+		private static final Pattern WORD_PATTERN = Pattern.compile("^[a-z_-]{6,24}$");
+		private static final Pattern NUMBER_PATTERN = Pattern.compile("^-?[0-9]+([.,][0-9]+)?$", Pattern.MULTILINE);
 
 		@Override
 		public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 
-			String[] splitLine = value.toString().split(" ");
+			String[] splitLine = value.toString().split("[^a-z0-9.,_-]+");
 
-			for (String w : splitLine) {
-				if (lastWord.getLength() > 0) {
-					pair.set(lastWord + ":" + w);
-					context.write(pair, one);
+			for (String token : splitLine) {
+				if (WORD_PATTERN.matcher(token).matches() || (NUMBER_PATTERN.matcher(token).matches() && token.length() >= 4 && token.length() <= 16)) {
+					//Remove hyphens that occur before a valid letter in words
+					String cleaned = WORD_PATTERN.matcher(token).matches() ? token.replaceAll("^-+(?=[a-zA-Z])", "") : token;
+
+					// Create pairs with previous words in the window (m=1 and m=2)
+					for (String prevWord : window) {
+						pair.set(prevWord + ":" + cleaned);
+						context.write(pair, one);
+					}
+
+					// Maintain a sliding window of size 2
+					if (window.size() == 2) {
+						window.poll(); // Remove oldest word
+					}
+					window.add(cleaned);
 				}
-				lastWord.set(w);
 			}
+			// Clear window at end of each line to avoid cross-line pairs
+			window.clear();
 		}
 	}
 
@@ -74,7 +93,11 @@ public class HadoopWordPairs extends Configured implements Tool {
 	}
 
 	public static void main(String[] args) throws Exception {
+		long startTime = System.currentTimeMillis();
 		int ret = ToolRunner.run(new Configuration(), new HadoopWordPairs(), args);
+
+		long endTime = System.currentTimeMillis();
+		System.out.println("Job Execution Time: " + (endTime - startTime) + " ms");
 		System.exit(ret);
 	}
 }
