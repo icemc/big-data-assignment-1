@@ -42,3 +42,4 @@ output/
 
 ### ignore all jar files
 *.jar
+*.zip
