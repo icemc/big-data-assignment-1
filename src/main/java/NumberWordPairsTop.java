@@ -27,7 +27,7 @@ public class NumberWordPairsTop extends Configured implements Tool {
 
         @Override
         public void map(Object key, Text value, Context context) throws NumberFormatException {
-            String[] tokens = value.toString().split("\\s+"); // Split on whitespaces
+            String[] tokens = value.toString().toLowerCase().split("\\s+"); // Split on whitespaces
 
             if (tokens.length == 2) {
                 String[] words = tokens[0].split(":");
@@ -94,7 +94,11 @@ public class NumberWordPairsTop extends Configured implements Tool {
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputFormatClass(TextOutputFormat.class);
 
-        FileInputFormat.setInputPaths(job, new Path(args[0]));
+        // Split comma-separated input paths
+        String[] inputPaths = args[0].split(",");
+        for (String path : inputPaths) {
+            FileInputFormat.addInputPath(job, new Path(path.trim()));
+        }
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         // Use a single reducer to find global top-100

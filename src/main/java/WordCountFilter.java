@@ -27,7 +27,7 @@ public class WordCountFilter extends Configured implements Tool {
 
         @Override
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
-            String[] tokens = value.toString().split("\\s+"); // Split on whitespaces
+            String[] tokens = value.toString().toLowerCase().split("\\s+"); // Split on whitespaces
 
             if (tokens.length == 2 && WORD_PATTERN.matcher(tokens[0]).matches()) {
                 try {
@@ -66,7 +66,11 @@ public class WordCountFilter extends Configured implements Tool {
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputFormatClass(TextOutputFormat.class);
 
-        FileInputFormat.setInputPaths(job, new Path(args[0]));
+        // Split comma-separated input paths
+        String[] inputPaths = args[0].split(",");
+        for (String path : inputPaths) {
+            FileInputFormat.addInputPath(job, new Path(path.trim()));
+        }
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         return job.waitForCompletion(true) ? 0 : 1;

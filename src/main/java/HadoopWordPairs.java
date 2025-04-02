@@ -26,13 +26,13 @@ public class HadoopWordPairs extends Configured implements Tool {
 		private Text pair = new Text();
 		private Queue<String> window = new LinkedList<>(); // Sliding window for m=2
 
-		private static final Pattern WORD_PATTERN = Pattern.compile("^[a-z_-]{6,24}$");
+		private static final Pattern WORD_PATTERN = Pattern.compile("^[a-z_\\-]{6,24}$");
 		private static final Pattern NUMBER_PATTERN = Pattern.compile("^-?[0-9]+([.,][0-9]+)?$", Pattern.MULTILINE);
 
 		@Override
 		public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 
-			String[] splitLine = value.toString().split("[^a-z0-9.,_-]+");
+			String[] splitLine = value.toString().toLowerCase().split("[^a-z0-9.,_\\-]+");
 
 			for (String token : splitLine) {
 				if (WORD_PATTERN.matcher(token).matches() || (NUMBER_PATTERN.matcher(token).matches() && token.length() >= 4 && token.length() <= 16)) {
@@ -85,7 +85,11 @@ public class HadoopWordPairs extends Configured implements Tool {
 		job.setInputFormatClass(TextInputFormat.class);
 		job.setOutputFormatClass(TextOutputFormat.class);
 
-		FileInputFormat.setInputPaths(job, args[0]);
+		// Split comma-separated input paths
+		String[] inputPaths = args[0].split(",");
+		for (String path : inputPaths) {
+			FileInputFormat.addInputPath(job, new Path(path.trim()));
+		}
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
 		job.waitForCompletion(true);

@@ -61,3 +61,31 @@ b.
 
 
 //TODO repeat process for articles AB, AC ...., AK
+
+//HadoopWordCount
+
+run.bat HadoopWordCount AA: Job Execution Time: 19060 ms
+run.bat HadoopWordCount AA AB: Job Execution Time: 38230 ms
+run.bat HadoopWordCount AA AB AC: Job Execution Time: 56704 ms
+run.bat HadoopWordCount AA AB AC AD: Job Execution Time: 78742 ms
+run.bat HadoopWordCount AA AB AC AD AE: Job Execution Time: 110618 ms
+run.bat HadoopWordCount AA AB AC AD AE AF: Job Execution Time: 135758 ms
+run.bat HadoopWordCount AA AB AC AD AE AF AG: Job Execution Time: 157957 ms
+run.bat HadoopWordCount AA AB AC AD AE AF AG AH: Job Execution Time: 181220 ms
+run.bat HadoopWordCount AA AB AC AD AE AF AG AH AI: Job Execution Time: 256694 ms
+run.bat HadoopWordCount AA AB AC AD AE AF AG AH AI AJ: Job Execution Time: 326589 ms
+run.bat HadoopWordCount AA AB AC AD AE AF AG AH AI AJ AK: Job Execution Time: 270044 ms
+
+//HadoopWordPairs
+
+run.bat HadoopWordPairs AA: Job Execution Time: 28138 ms
+run.bat HadoopWordPairs AA AB: Job Execution Time: 53534 ms
+run.bat HadoopWordPairs AA AB AC: Job Execution Time: 79929 ms
+run.bat HadoopWordPairs AA AB AC AD: Job Execution Time: 102076 ms
+run.bat HadoopWordPairs AA AB AC AD AE: Job Execution Time: 120687 ms
+run.bat HadoopWordPairs AA AB AC AD AE AF: Job Execution Time: 145928 ms
+run.bat HadoopWordPairs AA AB AC AD AE AF AG: Job Execution Time: 172452 ms
+run.bat HadoopWordPairs AA AB AC AD AE AF AG AH: Job Execution Time: 196702 ms
+run.bat HadoopWordPairs AA AB AC AD AE AF AG AH AI: Job Execution Time: 293553 ms
+run.bat HadoopWordPairs AA AB AC AD AE AF AG AH AI AJ: Job Execution Time: 304362 ms
+run.bat HadoopWordPairs AA AB AC AD AE AF AG AH AI AJ AK: Job Execution Time: 377653 ms
