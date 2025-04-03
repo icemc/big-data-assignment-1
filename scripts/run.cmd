@@ -5,14 +5,15 @@ setlocal enabledelayedexpansion
 set "base_input_path=/user/Ludovic/articles/articles/"
 set "base_output_path=/user/Ludovic/output/"
 set "raw_input_classes=HadoopWordCount HadoopWordPairs"
+set "hadoop_jar_path=../output/HadoopWordCount.jar"
 
 :: Validate arguments
 if "%~1"=="" (
-    echo Error: Missing class name argument
+    echo Error: Missing class name argument >&2
     goto show_usage
 )
 if "%~2"=="" (
-    echo Error: Missing input specification argument
+    echo Error: Missing input specification argument >&2
     goto show_usage
 )
 
@@ -26,6 +27,8 @@ for %%c in (%raw_input_classes%) do (
 
 if !is_raw_input!==1 (
     :: RAW INPUT PROCESSING
+    echo [INFO] Processing RAW INPUT mode for class '!hadoop_class!'
+
     set input_prefixes=
     set /a arg_count=0
     for %%a in (%*) do (
@@ -41,6 +44,11 @@ if !is_raw_input!==1 (
         )
     )
 
+    if "!input_prefixes!"=="" (
+        echo Error: Raw input mode requires at least one prefix argument. >&2
+        goto show_usage
+    )
+
     set input_paths=
     for %%p in (!input_prefixes!) do (
         if defined input_paths (
@@ -53,10 +61,12 @@ if !is_raw_input!==1 (
     set output_path=%base_output_path%!hadoop_class!/!first_prefix!-!last_prefix!
 ) else (
     :: PROCESSED INPUT PROCESSING
+    echo [INFO] Processing PROCESSED INPUT mode for class '!hadoop_class!'
+
     set "input_spec=%~2"
     echo "!input_spec!" | find "/" > nul
     if errorlevel 1 (
-        echo Error: Must use JobName/XX-YY format
+        echo Error: Input spec '!input_spec!' must use JobName/XX-YY format. >&2
         goto show_usage
     )
 
@@ -66,7 +76,7 @@ if !is_raw_input!==1 (
     )
 
     if "!input_range!"=="" (
-        echo Error: Invalid format - missing range after /
+        echo Error: Invalid format '!input_spec!' - requires non-empty JobName and Range. >&2
         goto show_usage
     )
 
@@ -75,18 +85,32 @@ if !is_raw_input!==1 (
 )
 
 :: Execute Hadoop command
-set "HADOOP_CLIENT_OPTS=-Xmx16g %HADOOP_CLIENT_OPTS%"
+echo [INFO] HDFS Input Paths:  !input_paths!
+echo [INFO] HDFS Output Path: !output_path!
 
-hadoop jar ../output/HadoopWordCount.jar !hadoop_class! "!input_paths!" "!output_path!"
-exit /b %errorlevel%
+set "HADOOP_CLIENT_OPTS=-Xmx16g %HADOOP_CLIENT_OPTS%"
+echo [INFO] Using HADOOP_CLIENT_OPTS: !HADOOP_CLIENT_OPTS!
+
+echo [INFO] Executing: hadoop jar !hadoop_jar_path! !hadoop_class! "!input_paths!" "!output_path!"
+
+hadoop jar !hadoop_jar_path! !hadoop_class! "!input_paths!" "!output_path!"
+set exit_status=!errorlevel!
+
+if !exit_status! neq 0 (
+    echo [ERROR] Hadoop command failed with exit code !exit_status! >&2
+    exit /b !exit_status!
+)
+
+echo [INFO] Hadoop command completed successfully.
+exit /b 0
 
 :show_usage
-echo Usage:
-echo   For raw input classes (%raw_input_classes%):
-echo     %~nx0 ^<class^> ^<prefix1^> [^<prefix2^> ...]
-echo     Example: %~nx0 HadoopWordCount AA AB AC
-echo.
-echo   For processed input:
-echo     %~nx0 ^<class^> ^<input_job^>/^<input_range^>
-echo     Example: %~nx0 WordCountFilter HadoopWordCount/AA-AB
+echo Usage: >&2
+echo   For raw input classes (%raw_input_classes%): >&2
+echo     %~nx0 ^<class^> ^<prefix1^> [^<prefix2^> ...] >&2
+echo     Example: %~nx0 HadoopWordCount AA AB AC >&2
+echo. >&2
+echo   For processed input: >&2
+echo     %~nx0 ^<class^> ^<input_job^>/^<input_range^> >&2
+echo     Example: %~nx0 WordCountFilter HadoopWordCount/AA-AB >&2
 exit /b 1
