@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # --- Configuration ---
-base_input_path="/user/Ludovic/articles/articles/"
-base_output_path="/user/Ludovic/output/"
+base_input_path="../input/"
+base_output_path="../output/hadoop/"
 # Use a bash array for the list of raw input classes
 raw_input_classes=("HadoopWordCount" "HadoopWordPairs")
 # Path to the JAR relative to where this script is run

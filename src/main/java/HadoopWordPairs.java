@@ -36,12 +36,10 @@ public class HadoopWordPairs extends Configured implements Tool {
 
 			for (String token : splitLine) {
 				if (WORD_PATTERN.matcher(token).matches() || (NUMBER_PATTERN.matcher(token).matches() && token.length() >= 4 && token.length() <= 16)) {
-					//Remove hyphens that occur before a valid letter in words
-					String cleaned = WORD_PATTERN.matcher(token).matches() ? token.replaceAll("^-+(?=[a-zA-Z])", "") : token;
 
 					// Create pairs with previous words in the window (m=1 and m=2)
 					for (String prevWord : window) {
-						pair.set(prevWord + ":" + cleaned);
+						pair.set(prevWord + ":" + token);
 						context.write(pair, one);
 					}
 
@@ -49,7 +47,7 @@ public class HadoopWordPairs extends Configured implements Tool {
 					if (window.size() == 2) {
 						window.poll(); // Remove oldest word
 					}
-					window.add(cleaned);
+					window.add(token);
 				}
 			}
 			// Clear window at end of each line to avoid cross-line pairs
@@ -73,7 +71,12 @@ public class HadoopWordPairs extends Configured implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
-		Job job = Job.getInstance(new Configuration(), "HadoopWordPairs");
+		// Set the filesystem to local
+		Configuration conf = this.getConf();
+		conf.set("fs.defaultFS", "file:///");
+		conf.set("mapreduce.framework.name", "local");
+
+		Job job = Job.getInstance(conf, "HadoopWordPairs");
 		job.setJarByClass(HadoopWordPairs.class);
 
 		job.setOutputKeyClass(Text.class);

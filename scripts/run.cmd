@@ -2,8 +2,8 @@
 setlocal enabledelayedexpansion
 
 :: CONFIGURATION
-set "base_input_path=/user/Ludovic/articles/articles/"
-set "base_output_path=/user/Ludovic/output/"
+set "base_input_path=../input/"
+set "base_output_path=../output/hadoop/"
 set "raw_input_classes=HadoopWordCount HadoopWordPairs"
 set "hadoop_jar_path=../output/HadoopWordCount.jar"
 
@@ -85,8 +85,8 @@ if !is_raw_input!==1 (
 )
 
 :: Execute Hadoop command
-echo [INFO] HDFS Input Paths:  !input_paths!
-echo [INFO] HDFS Output Path: !output_path!
+echo [INFO] Local Input Paths:  !input_paths!
+echo [INFO] Local Output Path: !output_path!
 
 set "HADOOP_CLIENT_OPTS=-Xmx16g %HADOOP_CLIENT_OPTS%"
 echo [INFO] Using HADOOP_CLIENT_OPTS: !HADOOP_CLIENT_OPTS!

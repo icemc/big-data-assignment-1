@@ -82,7 +82,12 @@ public class NumberWordPairsTop extends Configured implements Tool {
 
     @Override
     public int run(String[] args) throws Exception {
-        Job job = Job.getInstance(new Configuration(), "NumberWordPairsTop");
+        // Set the filesystem to local
+        Configuration conf = this.getConf();
+        conf.set("fs.defaultFS", "file:///");
+        conf.set("mapreduce.framework.name", "local");
+
+        Job job = Job.getInstance(conf, "NumberWordPairsTop");
         job.setJarByClass(NumberWordPairsTop.class);
 
         job.setMapperClass(HMap.class);

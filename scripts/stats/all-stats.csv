@@ -1,13 +1,13 @@
 JobName,JobType,InputSpec,StartTime,EndTime,ElapsedTime 
-HadoopWordCount,RawInput,AA,03/04/2025  9:22:33.13, 9:22:58.19,25.006 
-HadoopWordCount,RawInput,AA,AB,03/04/2025  9:23:59.34, 9:24:38.04,38.970 
-HadoopWordPairs,RawInput,AA,03/04/2025  9:23:07.11, 9:23:37.38,30.027 
-HadoopWordPairs,RawInput,AA,AB,03/04/2025  9:24:47.25, 9:25:45.87,58.062 
-NumberWordPairsTop,Dependent,HadoopWordPairs/AA-AA,03/04/2025  9:23:52.32, 9:23:59.33,7.001 
-NumberWordPairsTop,Dependent,HadoopWordPairs/AA-AB,03/04/2025  9:26:10.01, 9:26:19.14,9.013 
-WordCountFilter,Dependent,HadoopWordCount/AA-AA,03/04/2025  9:22:58.21, 9:23:03.01,4.980 
-WordCountFilter,Dependent,HadoopWordCount/AA-AB,03/04/2025  9:24:38.06, 9:24:43.17,5.011 
-WordCountTop,Dependent,HadoopWordCount/AA-AA,03/04/2025  9:23:03.05, 9:23:07.09,4.005 
-WordCountTop,Dependent,HadoopWordCount/AA-AB,03/04/2025  9:24:43.19, 9:24:47.24,4.005 
-WordPairsFilter,Dependent,HadoopWordPairs/AA-AA,03/04/2025  9:23:37.41, 9:23:52.31,14.990 
-WordPairsFilter,Dependent,HadoopWordPairs/AA-AB,03/04/2025  9:25:45.89, 9:26:09.98,24.009 
+HadoopWordCount,RawInput,AA,03/04/2025  9:39:30.72, 9:39:54.80,24.008 
+HadoopWordCount,RawInput,AA,AB,03/04/2025  9:40:50.56, 9:41:29.51,38.995 
+HadoopWordPairs,RawInput,AA,03/04/2025  9:40:01.58, 9:40:31.53,29.995 
+HadoopWordPairs,RawInput,AA,AB,03/04/2025  9:41:37.33, 9:42:32.42,55.009 
+NumberWordPairsTop,Dependent,HadoopWordPairs/AA-AA,03/04/2025  9:40:44.16, 9:40:50.55,6.039 
+NumberWordPairsTop,Dependent,HadoopWordPairs/AA-AB,03/04/2025  9:42:53.20, 9:43:01.84,8.064 
+WordCountFilter,Dependent,HadoopWordCount/AA-AA,03/04/2025  9:39:54.81, 9:39:58.23,3.942 
+WordCountFilter,Dependent,HadoopWordCount/AA-AB,03/04/2025  9:41:29.52, 9:41:33.92,4.040 
+WordCountTop,Dependent,HadoopWordCount/AA-AA,03/04/2025  9:39:58.24, 9:40:01.57,3.033 
+WordCountTop,Dependent,HadoopWordCount/AA-AB,03/04/2025  9:41:33.95, 9:41:37.32,3.937 
+WordPairsFilter,Dependent,HadoopWordPairs/AA-AA,03/04/2025  9:40:31.54, 9:40:44.14,12.960 
+WordPairsFilter,Dependent,HadoopWordPairs/AA-AB,03/04/2025  9:42:32.43, 9:42:53.18,20.975 

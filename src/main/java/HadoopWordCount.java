@@ -34,11 +34,7 @@ public class HadoopWordCount extends Configured implements Tool {
 
 			for (String token : splitLine) {
 				if (WORD_PATTERN.matcher(token).matches() || (NUMBER_PATTERN.matcher(token).matches() && token.length() >= 4 && token.length() <= 16)) {
-
-					//Remove hyphens that occur before a valid letter in words
-					//TODO Remove hyphens at the end of words and do same for underscores (before and after word)
-					String cleaned = WORD_PATTERN.matcher(token).matches() ? token.replaceAll("^-+(?=[a-zA-Z])", "") : token;
-					wordOrNumber.set(cleaned);
+					wordOrNumber.set(token);
 					context.write(wordOrNumber, one);
 				}
 			}
@@ -62,7 +58,12 @@ public class HadoopWordCount extends Configured implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
-		Job job = Job.getInstance(new Configuration(), "HadoopWordCount");
+		// Set the filesystem to local
+		Configuration conf = this.getConf();
+		conf.set("fs.defaultFS", "file:///");
+		conf.set("mapreduce.framework.name", "local");
+
+		Job job = Job.getInstance(conf, "HadoopWordCount");
 		job.setJarByClass(HadoopWordCount.class);
 
 		job.setOutputKeyClass(Text.class);

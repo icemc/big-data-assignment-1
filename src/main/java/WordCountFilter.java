@@ -54,7 +54,12 @@ public class WordCountFilter extends Configured implements Tool {
 
     @Override
     public int run(String[] args) throws Exception {
-        Job job = Job.getInstance(new Configuration(), "WordCountFilter");
+        // Set the filesystem to local
+        Configuration conf = this.getConf();
+        conf.set("fs.defaultFS", "file:///");
+        conf.set("mapreduce.framework.name", "local");
+
+        Job job = Job.getInstance(conf, "WordCountFilter");
         job.setJarByClass(WordCountFilter.class);
 
         job.setMapperClass(Map.class);

@@ -78,7 +78,12 @@ public class WordCountTop extends Configured implements Tool {
 
     @Override
     public int run(String[] args) throws Exception {
-        Job job = Job.getInstance(new Configuration(), "WordCountTop");
+        // Set the filesystem to local
+        Configuration conf = this.getConf();
+        conf.set("fs.defaultFS", "file:///");
+        conf.set("mapreduce.framework.name", "local");
+
+        Job job = Job.getInstance(conf, "WordCountTop");
         job.setJarByClass(WordCountTop.class);
 
         job.setMapperClass(HMap.class);
