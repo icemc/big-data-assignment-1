@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 :: Configuration
-set "SUBDIRS=AA AB"
+set "SUBDIRS=AA AB AC AD AE AF AG AH AI AJ AK"
 set "RAW_CLASSES=HadoopWordCount HadoopWordPairs"
 set "WORDCOUNT_DEPS=WordCountFilter WordCountTop"
 set "WORDPAIRS_DEPS=WordPairsFilter NumberWordPairsTop"

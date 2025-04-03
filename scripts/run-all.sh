@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-SUBDIRS=("AA" "AB")
+SUBDIRS=("AA" "AB" "AC" "AD" "AE" "AF" "AG" "AH" "AI" "AJ" "AK")
 RAW_CLASSES=("HadoopWordCount" "HadoopWordPairs")
 WORDCOUNT_DEPS=("WordCountFilter" "WordCountTop")
 WORDPAIRS_DEPS=("WordPairsFilter" "NumberWordPairsTop")

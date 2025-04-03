@@ -111,8 +111,8 @@ else
 fi
 
 # --- Execute Hadoop Command ---
-echo "[INFO] HDFS Input Paths:  $input_paths"
-echo "[INFO] HDFS Output Path: $output_path"
+echo "[INFO] Local Input Paths:  $input_paths"
+echo "[INFO] Local Output Path: $output_path"
 
 # Set Hadoop client options (export makes it available to the hadoop command)
 export HADOOP_CLIENT_OPTS="-Xmx16g ${HADOOP_CLIENT_OPTS}" # Append safely
