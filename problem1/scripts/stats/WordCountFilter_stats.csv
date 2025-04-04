@@ -1,0 +1,5 @@
+InputSpec,StartTime,EndTime,ElapsedTime 
+HadoopWordCount/AA-AA,04/04/2025  1:45:13.89, 1:45:17.16,3.927 
+HadoopWordCount/AA-AA,04/04/2025  1:49:20.70, 1:49:23.68,2.998 
+HadoopWordCount/AA-AB,04/04/2025  1:50:47.40, 1:50:51.61,4.021 
+HadoopWordCount/AA-AC,04/04/2025  1:53:05.31, 1:53:09.38,4.007 

@@ -1,0 +1,81 @@
+Titanic Analysis with PySpark
+=============================
+
+This project performs analysis on the Titanic dataset using PySpark, including:
+1. Median age calculation (with null replacement)
+2. Passenger queries for those older than median age
+3. Fare analysis by survival status
+
+1. Hardware Setup
+-----------------
+
+OS Name:	                           Microsoft Windows 11 Pro
+System Model:	                     Blade 15 (2022) - RZ09-0421
+Processor:	                        12th Gen Intel(R) Core(TM) i7-12800H, 2400 Mhz, 14 Core(s), 20 Logical Processor(s)
+GPU:                                NVIDIA GeForce RTX 3070 Ti
+Installed Physical Memory (RAM):	   64.0 GB
+
+
+
+Requirements
+------------
+- Python 3.x
+- PySpark
+- titanic.csv dataset in the working directory
+
+Execution Methods
+-----------------
+
+1. Local Execution:
+   spark-submit problem3.py
+
+2. HPC Execution with SLURM:
+   sbatch run_problem3.sbatch
+
+Output Redirection
+-----------------
+
+To capture both output and errors:
+
+1. For local execution:
+   spark-submit problem3.py > output.log 2> error.log
+
+2. For SLURM jobs (output handled automatically):
+   sbatch run_problem3.sbatch
+
+
+Output Files
+------------
+- output.log: Contains all program output (local execution)
+- error.log: Contains error messages (local execution)
+- output.log: SLURM standard output
+- error.log: SLURM error output
+
+Script Functionality
+--------------------
+The script performs three main analyses:
+
+1. Median Age Calculation:
+   - Replaces null age values with 23
+   - Computes and displays median age
+   - Reports execution time
+
+2. Passenger Query:
+   - Finds passengers older than median age
+   - Displays names and fares
+   - Shows result count and runtime
+
+3. Fare Analysis:
+   - Compares average fares between survivors/non-survivors
+   - Calculates fare difference
+   - Provides conclusion based on threshold
+   - Reports execution time
+
+Notes
+-----
+- The script automatically stops the SparkSession when complete
+- All runtime measurements are in seconds
+
+
+Results (See sample complete example in output.log)
+---------------------------------------------------

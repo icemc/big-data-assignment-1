@@ -1,0 +1,459 @@
+Part (a) - Median Age (with nulls replaced by 23): 24.0
+Part (a) - Runtime: 0.33034253120422363 seconds
+Part (b) - Passengers with age greater than median age (count: 437):
++---------------------------------------------------------------------+--------+
+|Name                                                                 |Fare    |
++---------------------------------------------------------------------+--------+
+|"Andersson, Mr. August Edvard (""Wennerstrom"")"                     |7.7958  |
+|"Angle, Mrs. William A (Florence ""Mary"" Agnes Hughes)"             |26.0    |
+|"Barber, Miss. Ellen ""Nellie"""                                     |78.85   |
+|"Duff Gordon, Lady. (Lucille Christiana Sutherland) (""Mrs Morgan"")"|39.6    |
+|"Duff Gordon, Sir. Cosmo Edmund (""Mr Morgan"")"                     |56.9292 |
+|"Flynn, Mr. John Irwin (""Irving"")"                                 |26.3875 |
+|"Homer, Mr. Harry (""Mr E Haven"")"                                  |26.55   |
+|"Kelly, Mrs. Florence ""Fannie"""                                    |13.5    |
+|"Morley, Mr. Henry Samuel (""Mr Henry Marshall"")"                   |26.0    |
+|"Navratil, Mr. Michel (""Louis M Hoffman"")"                         |26.0    |
+|"Romaine, Mr. Charles Hallace (""Mr C Rolmane"")"                    |26.55   |
+|"Troutt, Miss. Edwina Celia ""Winnie"""                              |10.5    |
+|"Watt, Mrs. James (Elizabeth ""Bessie"" Inglis Milne)"               |15.75   |
+|Abbing, Mr. Anthony                                                  |7.55    |
+|Abbott, Mrs. Stanton (Rosa Hunt)                                     |20.25   |
+|Abelson, Mr. Samuel                                                  |24.0    |
+|Abelson, Mrs. Samuel (Hannah Wizosky)                                |24.0    |
+|Adahl, Mr. Mauritz Nils Martin                                       |7.25    |
+|Adams, Mr. John                                                      |8.05    |
+|Ahlin, Mrs. Johan (Johanna Persdotter Larsson)                       |9.475   |
+|Albimona, Mr. Nassef Cassem                                          |18.7875 |
+|Alexander, Mr. William                                               |7.8875  |
+|Ali, Mr. William                                                     |7.05    |
+|Allen, Miss. Elisabeth Walton                                        |211.3375|
+|Allen, Mr. William Henry                                             |8.05    |
+|Allison, Mrs. Hudson J C (Bessie Waldo Daniels)                      |151.55  |
+|Anderson, Mr. Harry                                                  |26.55   |
+|Andersson, Mr. Anders Johan                                          |31.275  |
+|Andersson, Mrs. Anders Johan (Alfrida Konstantia Brogren)            |31.275  |
+|Andrews, Miss. Kornelia Theodosia                                    |77.9583 |
+|Andrews, Mr. Thomas Jr                                               |0.0     |
+|Appleton, Mrs. Edward Dale (Charlotte Lamson)                        |51.4792 |
+|Arnold-Franchi, Mr. Josef                                            |17.8    |
+|Artagaveytia, Mr. Ramon                                              |49.5042 |
+|Asim, Mr. Adola                                                      |7.05    |
+|Asplund, Mrs. Carl Oscar (Selma Augusta Emilia Johansson)            |31.3875 |
+|Attalah, Mr. Sleiman                                                 |7.225   |
+|Backstrom, Mr. Karl Alfred                                           |15.85   |
+|Backstrom, Mrs. Karl Alfred (Maria Mathilda Gustafsson)              |15.85   |
+|Badt, Mr. Mohamed                                                    |7.225   |
+|Balkic, Mr. Cerin                                                    |7.8958  |
+|Ball, Mrs. (Ada E Hall)                                              |13.0    |
+|Banfield, Mr. Frederick James                                        |10.5    |
+|Barbara, Mrs. (Catherine David)                                      |14.4542 |
+|Barkworth, Mr. Algernon Henry Wilson                                 |30.0    |
+|Bateman, Rev. Robert James                                           |12.525  |
+|Baxter, Mrs. James (Helene DeLaudeniere Chaput)                      |247.5208|
+|Bazzani, Miss. Albina                                                |76.2917 |
+|Beane, Mr. Edward                                                    |26.0    |
+|Beckwith, Mr. Richard Leonard                                        |52.5542 |
+|Beckwith, Mrs. Richard Leonard (Sallie Monypeny)                     |52.5542 |
+|Beesley, Mr. Lawrence                                                |13.0    |
+|Behr, Mr. Karl Howell                                                |30.0    |
+|Bengtsson, Mr. John Viktor                                           |7.775   |
+|Bidois, Miss. Rosalie                                                |227.525 |
+|Bing, Mr. Lee                                                        |56.4958 |
+|Bishop, Mr. Dickinson H                                              |91.0792 |
+|Bissette, Miss. Amelia                                               |135.6333|
+|Bjornstrom-Steffansson, Mr. Mauritz Hakan                            |26.55   |
+|Blackwell, Mr. Stephen Weart                                         |35.5    |
+|Blank, Mr. Henry                                                     |31.0    |
+|Bonnell, Miss. Elizabeth                                             |26.55   |
+|Bostandyeff, Mr. Guentcho                                            |7.8958  |
+|Bourke, Mr. John                                                     |15.5    |
+|Bourke, Mrs. John (Catherine)                                        |15.5    |
+|Bracken, Mr. James H                                                 |13.0    |
+|Braund, Mr. Lewis Richard                                            |7.0458  |
+|Brocklebank, Mr. William Alfred                                      |8.05    |
+|Brown, Mr. Thomas William Solomon                                    |39.0    |
+|Brown, Mrs. James Joseph (Margaret Tobin)                            |27.7208 |
+|Brown, Mrs. Thomas William Solomon (Elizabeth Catherine Ford)        |39.0    |
+|Bryhl, Mr. Kurt Arnold Gottfrid                                      |26.0    |
+|Burns, Miss. Elizabeth Margaret                                      |134.5   |
+|Buss, Miss. Kate                                                     |13.0    |
+|Butler, Mr. Reginald Fenton                                          |13.0    |
+|Butt, Major. Archibald Willingham                                    |26.55   |
+|Byles, Rev. Thomas Roussel Davids                                    |13.0    |
+|Bystrom, Mrs. (Karolina)                                             |13.0    |
+|Cacic, Miss. Marija                                                  |8.6625  |
+|Cacic, Mr. Luka                                                      |8.6625  |
+|Calderhead, Mr. Edward Pennington                                    |26.2875 |
+|Cameron, Miss. Clear Annie                                           |21.0    |
+|Cardeza, Mr. Thomas Drake Martinez                                   |512.3292|
+|Carlsson, Mr. August Sigfrid                                         |7.7958  |
+|Carlsson, Mr. Frans Olof                                             |5.0     |
+|Carrau, Mr. Francisco M                                              |47.1    |
+|Carter, Mr. William Ernest                                           |120.0   |
+|Carter, Mrs. Ernest Courtenay (Lilian Hughes)                        |26.0    |
+|Carter, Mrs. William Ernest (Lucile Polk)                            |120.0   |
+|Carter, Rev. Ernest Courtenay                                        |26.0    |
+|Cavendish, Mr. Tyrell William                                        |78.85   |
+|Chaffee, Mr. Herbert Fuller                                          |61.175  |
+|Chambers, Mr. Norman Campbell                                        |53.1    |
+|Chambers, Mrs. Norman Campbell (Bertha Griggs)                       |53.1    |
+|Chapman, Mr. Charles Henry                                           |13.5    |
+|Chapman, Mr. John Henry                                              |26.0    |
+|Cherry, Miss. Gladys                                                 |86.5    |
+|Chip, Mr. Chang                                                      |56.4958 |
+|Christmann, Mr. Emil                                                 |8.05    |
+|Christy, Miss. Julie Rachel                                          |30.0    |
+|Chronopoulos, Mr. Apostolos                                          |14.4542 |
+|Clarke, Mrs. Charles V (Ada Maria Winfield)                          |26.0    |
+|Coleff, Mr. Peju                                                     |7.4958  |
+|Coleridge, Mr. Reginald Charles                                      |10.5    |
+|Collander, Mr. Erik Gustaf                                           |13.0    |
+|Colley, Mr. Edward Pomeroy                                           |25.5875 |
+|Collyer, Mr. Harvey                                                  |26.25   |
+|Collyer, Mrs. Harvey (Charlotte Annie Tate)                          |26.25   |
+|Compton, Miss. Sara Rebecca                                          |83.1583 |
+|Connaghton, Mr. Michael                                              |7.75    |
+|Connors, Mr. Patrick                                                 |7.75    |
+|Cook, Mr. Jacob                                                      |8.05    |
+|Corn, Mr. Harry                                                      |8.05    |
+|Coxon, Mr. Daniel                                                    |7.25    |
+|Cribb, Mr. John Hatfield                                             |16.1    |
+|Crosby, Capt. Edward Gifford                                         |71.0    |
+|Crosby, Miss. Harriet R                                              |71.0    |
+|Cumings, Mrs. John Bradley (Florence Briggs Thayer)                  |71.2833 |
+|Dahl, Mr. Karl Edwart                                                |8.05    |
+|Daly, Mr. Eugene Patrick                                             |7.75    |
+|Daly, Mr. Peter Denis                                                |26.55   |
+|Danbom, Mr. Ernst Gilbert                                            |14.4    |
+|Danbom, Mrs. Ernst Gilbert (Anna Sigrid Maria Brogren)               |14.4    |
+|Daniel, Mr. Robert Williams                                          |30.5    |
+|Danoff, Mr. Yoto                                                     |7.8958  |
+|Dantcheff, Mr. Ristiu                                                |7.8958  |
+|Davidson, Mr. Thornton                                               |52.0    |
+|Davis, Miss. Mary                                                    |13.0    |
+|Dean, Mr. Bertram Frank                                              |20.575  |
+|Dick, Mr. Albert Adrian                                              |57.0    |
+|Dimic, Mr. Jovan                                                     |8.6625  |
+|Doling, Mrs. John T (Ada Julia Bone)                                 |23.0    |
+|Dooley, Mr. Patrick                                                  |7.75    |
+|Douglas, Mr. Walter Donald                                           |106.425 |
+|Dowdell, Miss. Elizabeth                                             |12.475  |
+|Downton, Mr. William James                                           |26.0    |
+|Drazenoic, Mr. Jozef                                                 |7.8958  |
+|Drew, Mrs. James Vivian (Lulu Thorne Christian)                      |32.5    |
+|Duane, Mr. Frank                                                     |7.75    |
+|Duran y More, Miss. Asuncion                                         |13.8583 |
+|Ekstrom, Mr. Johan                                                   |6.975   |
+|Elsbury, Mr. William James                                           |7.25    |
+|Endres, Miss. Caroline Louise                                        |227.525 |
+|Eustis, Miss. Elizabeth Mussey                                       |78.2667 |
+|Farrell, Mr. James                                                   |7.75    |
+|Faunthorpe, Mrs. Lizzie (Elizabeth Anne Wilkinson)                   |26.0    |
+|Ford, Mrs. Edward (Margaret Ann Watson)                              |34.375  |
+|Foreman, Mr. Benjamin Laventall                                      |27.75   |
+|Fortune, Mr. Mark                                                    |263.0   |
+|Fox, Mr. Stanley Hubert                                              |13.0    |
+|Francatelli, Miss. Laura Mabel                                       |56.9292 |
+|Frauenthal, Dr. Henry William                                        |133.65  |
+|Frolicher-Stehli, Mr. Maxmillian                                     |79.2    |
+|Funk, Miss. Annie Clemmer                                            |13.0    |
+|Futrelle, Mr. Jacques Heath                                          |53.1    |
+|Futrelle, Mrs. Jacques Heath (Lily May Peel)                         |53.1    |
+|Fynney, Mr. Joseph J                                                 |26.0    |
+|Gale, Mr. Shadrach                                                   |21.0    |
+|Gallagher, Mr. Martin                                                |7.7417  |
+|Garside, Miss. Ethel                                                 |13.0    |
+|Gavey, Mr. Lawrence                                                  |10.5    |
+|Gee, Mr. Arthur H                                                    |38.5    |
+|Gillespie, Mr. William Henry                                         |13.0    |
+|Givard, Mr. Hans Kristensen                                          |13.0    |
+|Goldenberg, Mr. Samuel L                                             |89.1042 |
+|Goldschmidt, Mr. George B                                            |34.6542 |
+|Goldsmith, Mr. Frank John                                            |20.525  |
+|Goldsmith, Mrs. Frank John (Emily Alice Brown)                       |20.525  |
+|Goncalves, Mr. Manuel Estanslas                                      |7.05    |
+|Goodwin, Mrs. Frederick (Augusta Tyler)                              |46.9    |
+|Graham, Mr. George Edward                                            |153.4625|
+|Graham, Mrs. William Thompson (Edith Junkins)                        |153.4625|
+|Green, Mr. George Henry                                              |8.05    |
+|Greenberg, Mr. Samuel                                                |13.0    |
+|Gronnestad, Mr. Daniel Danielsen                                     |8.3625  |
+|Guggenheim, Mr. Benjamin                                             |79.2    |
+|Gustafsson, Mr. Anders Vilhelm                                       |7.925   |
+|Gustafsson, Mr. Johan Birger                                         |7.925   |
+|Hakkarainen, Mr. Pekka Pietari                                       |15.85   |
+|Hale, Mr. Reginald                                                   |13.0    |
+|Hansen, Mr. Claus Peter                                              |14.1083 |
+|Hansen, Mr. Henrik Juul                                              |7.8542  |
+|Harder, Mr. George Achilles                                          |55.4417 |
+|Harmer, Mr. Abraham (David Lishin)                                   |7.25    |
+|Harper, Mr. Henry Sleeper                                            |76.7292 |
+|Harper, Mrs. Henry Sleeper (Myna Haxtun)                             |76.7292 |
+|Harper, Rev. John                                                    |33.0    |
+|Harris, Mr. George                                                   |10.5    |
+|Harris, Mr. Henry Birkhardt                                          |83.475  |
+|Harris, Mr. Walter                                                   |10.5    |
+|Harris, Mrs. Henry Birkhardt (Irene Wallach)                         |83.475  |
+|Harrison, Mr. William                                                |0.0     |
+|Hart, Mr. Benjamin                                                   |26.25   |
+|Hart, Mrs. Benjamin (Esther Ada Bloomfield)                          |26.25   |
+|Hassab, Mr. Hammad                                                   |76.7292 |
+|Hays, Mrs. Charles Melville (Clara Jennings Gregg)                   |93.5    |
+|Hedman, Mr. Oskar Arvid                                              |6.975   |
+|Heikkinen, Miss. Laina                                               |7.925   |
+|Hendekovic, Mr. Ignjac                                               |7.8958  |
+|Herman, Mrs. Samuel (Jane Laver)                                     |65.0    |
+|Hewlett, Mrs. (Mary D Kingcome)                                      |16.0    |
+|Hickman, Mr. Lewis                                                   |73.5    |
+|Hippach, Mrs. Louis Albert (Ida Sophia Fischer)                      |57.9792 |
+|Hocking, Mrs. Elizabeth (Eliza Needs)                                |23.0    |
+|Hodges, Mr. Henry Price                                              |13.0    |
+|Hogeboom, Mrs. John C (Anna Andrews)                                 |77.9583 |
+|Hold, Mr. Stephen                                                    |26.0    |
+|Holm, Mr. John Fredrik Alexander                                     |6.45    |
+|Holverson, Mr. Alexander Oskar                                       |52.0    |
+|Holverson, Mrs. Alexander Oskar (Mary Aline Towner)                  |52.0    |
+|Honkanen, Miss. Eliina                                               |7.925   |
+|Hosono, Mr. Masabumi                                                 |13.0    |
+|Hoyt, Mr. Frederick Maxfield                                         |90.0    |
+|Hoyt, Mrs. Frederick Maxfield (Jane Anne Forby)                      |90.0    |
+|Humblen, Mr. Adolf Mathias Nicolai Olsen                             |7.65    |
+|Hunt, Mr. George Henry                                               |12.275  |
+|Ibrahim Shawah, Mr. Yousseff                                         |7.2292  |
+|Icard, Miss. Amelie                                                  |80.0    |
+|Ilmakangas, Miss. Pieta Sofia                                        |7.925   |
+|Isham, Miss. Ann Elizabeth                                           |28.7125 |
+|Jacobsohn, Mr. Sidney Samuel                                         |27.0    |
+|Jalsevac, Mr. Ivan                                                   |7.8958  |
+|Jarvis, Mr. John Denzil                                              |15.0    |
+|Jenkin, Mr. Stephen Curnow                                           |10.5    |
+|Jensen, Mr. Niels Peder                                              |7.8542  |
+|Johanson, Mr. Jakob Alfred                                           |6.4958  |
+|Johansson, Mr. Gustaf Joel                                           |8.6542  |
+|Johansson, Mr. Karl Johan                                            |7.775   |
+|Johnson, Mr. Alfred                                                  |0.0     |
+|Johnson, Mr. Malkolm Joackim                                         |7.775   |
+|Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)                    |11.1333 |
+|Jonsson, Mr. Carl                                                    |7.8542  |
+|Jussila, Mr. Eiriik                                                  |7.925   |
+|Kantor, Mr. Sinai                                                    |26.0    |
+|Karaic, Mr. Milan                                                    |7.8958  |
+|Kelly, Mr. James                                                     |8.05    |
+|Kent, Mr. Edward Austin                                              |29.7    |
+|Kimball, Mr. Edwin Nelson Jr                                         |52.5542 |
+|Kink, Mr. Vincenz                                                    |8.6625  |
+|Kirkland, Rev. Charles Leonard                                       |12.35   |
+|Kvillner, Mr. Johan Henrik Johannesson                               |10.5    |
+|Lahtinen, Mrs. William (Anna Sylfven)                                |26.0    |
+|Laitinen, Miss. Kristina Sofia                                       |9.5875  |
+|Lang, Mr. Fang                                                       |56.4958 |
+|Laroche, Mr. Joseph Philippe Lemercier                               |41.5792 |
+|Larsson, Mr. August Viktor                                           |9.4833  |
+|Larsson, Mr. Bengt Edvin                                             |7.775   |
+|LeRoy, Miss. Bertha                                                  |106.425 |
+|Leader, Dr. Alice (Farnham)                                          |25.9292 |
+|Leinonen, Mr. Antti Gustaf                                           |7.925   |
+|Lemberopolous, Mr. Peter L                                           |6.4375  |
+|Lemore, Mrs. (Amelia Milley)                                         |10.5    |
+|Leonard, Mr. Lionel                                                  |0.0     |
+|Lester, Mr. James                                                    |24.15   |
+|Lesurer, Mr. Gustave J                                               |512.3292|
+|Levy, Mr. Rene Jacques                                               |12.875  |
+|Lindahl, Miss. Agda Thorilda Viktoria                                |7.775   |
+|Lindblom, Miss. Augusta Charlotta                                    |7.75    |
+|Lindell, Mr. Edvard Bengtsson                                        |15.55   |
+|Ling, Mr. Lee                                                        |56.4958 |
+|Lobb, Mr. William Arthur                                             |16.1    |
+|Lobb, Mrs. William Arthur (Cordelia K Stanlick)                      |16.1    |
+|Long, Mr. Milton Clyde                                               |30.0    |
+|Louch, Mrs. Charles Alexander (Alice Adelaide Slow)                  |26.0    |
+|Lulic, Mr. Nikola                                                    |8.6625  |
+|Lundahl, Mr. Johan Svensson                                          |7.0542  |
+|Lurette, Miss. Elise                                                 |146.5208|
+|Mack, Mrs. (Mary)                                                    |10.5    |
+|Mallet, Mr. Albert                                                   |37.0042 |
+|Mangan, Miss. Mary                                                   |7.75    |
+|Markoff, Mr. Marin                                                   |7.8958  |
+|Markun, Mr. Johann                                                   |7.8958  |
+|Matthews, Mr. William John                                           |13.0    |
+|McCarthy, Mr. Timothy J                                              |51.8625 |
+|McGough, Mr. James Robert                                            |26.2875 |
+|McKane, Mr. Peter David                                              |26.0    |
+|Mellinger, Mrs. (Elizabeth Anne Maidment)                            |19.5    |
+|Meo, Mr. Alfonzo                                                     |8.05    |
+|Meyer, Mr. August                                                    |13.0    |
+|Meyer, Mr. Edgar Joseph                                              |82.1708 |
+|Millet, Mr. Francis Davis                                            |26.55   |
+|Milling, Mr. Jacob Christian                                         |13.0    |
+|Minahan, Dr. William Edward                                          |90.0    |
+|Minahan, Miss. Daisy E                                               |90.0    |
+|Mionoff, Mr. Stoytcho                                                |7.8958  |
+|Mitchell, Mr. Henry Michael                                          |10.5    |
+|Moen, Mr. Sigurd Hansen                                              |7.65    |
+|Molson, Mr. Harry Markland                                           |30.5    |
+|Montvila, Rev. Juozas                                                |13.0    |
+|Moor, Mrs. (Beila)                                                   |12.475  |
+|Moraweck, Dr. Ernest                                                 |14.0    |
+|Morley, Mr. William                                                  |8.05    |
+|Nasser, Mr. Nicholas                                                 |30.0708 |
+|Natsch, Mr. Charles H                                                |29.7    |
+|Newell, Miss. Madeleine                                              |113.275 |
+|Newell, Mr. Arthur Webster                                           |113.275 |
+|Nicholson, Mr. Arthur Ernest                                         |26.0    |
+|Nilsson, Miss. Helmina Josefina                                      |7.8542  |
+|Nirva, Mr. Iisakki Antino Aijo                                       |7.125   |
+|Niskanen, Mr. Juha                                                   |7.925   |
+|Norman, Mr. Robert Douglas                                           |13.5    |
+|Novel, Mr. Mansouer                                                  |7.2292  |
+|Nye, Mrs. (Elizabeth Ramell)                                         |10.5    |
+|Nysveen, Mr. Johan Hansen                                            |6.2375  |
+|Olsen, Mr. Henry Margido                                             |22.525  |
+|Olsen, Mr. Karl Siegwart Andreas                                     |8.4042  |
+|Olsson, Miss. Elina                                                  |7.8542  |
+|Olsson, Mr. Nils Johan Goransson                                     |7.8542  |
+|Osman, Mrs. Mara                                                     |8.6833  |
+|Ostby, Mr. Engelhart Cornelius                                       |61.9792 |
+|Otter, Mr. Richard                                                   |13.0    |
+|Palsson, Mrs. Nils (Alma Cornelia Berglund)                          |21.075  |
+|Panula, Mrs. Juha (Maria Emilia Ojala)                               |39.6875 |
+|Parrish, Mrs. (Lutie Davis)                                          |26.0    |
+|Partner, Mr. Austen                                                  |28.5    |
+|Pavlovic, Mr. Stefo                                                  |7.8958  |
+|Pears, Mr. Thomas Clinton                                            |66.6    |
+|Perreault, Miss. Anne                                                |93.5    |
+|Persson, Mr. Ernst Ulrik                                             |7.775   |
+|Petranec, Miss. Matilda                                              |7.8958  |
+|Petterson, Mr. Johan Emil                                            |7.775   |
+|Peuchen, Major. Arthur Godfrey                                       |30.5    |
+|Pickard, Mr. Berk (Berk Trembisky)                                   |8.05    |
+|Pinsky, Mrs. (Rosa)                                                  |13.0    |
+|Ponesell, Mr. Martin                                                 |13.0    |
+|Porter, Mr. Walter Chamberlain                                       |52.0    |
+|Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)                        |83.1583 |
+|Quick, Mrs. Frederick Charles (Jane Richards)                        |26.0    |
+|Reeves, Mr. David                                                    |10.5    |
+|Rekic, Mr. Tido                                                      |7.8958  |
+|Renouf, Mr. Peter Henry                                              |21.0    |
+|Renouf, Mrs. Peter Henry (Lillian Jefferys)                          |21.0    |
+|Reuchlin, Jonkheer. John George                                      |0.0     |
+|Reynaldo, Ms. Encarnacion                                            |13.0    |
+|Rice, Mrs. William (Margaret Norton)                                 |29.125  |
+|Ridsdale, Miss. Lucy                                                 |10.5    |
+|Rintamaki, Mr. Matti                                                 |7.125   |
+|Robert, Mrs. Edward Scott (Elisabeth Walton McMillan)                |211.3375|
+|Robins, Mrs. Alexander A (Grace Charity Laury)                       |14.5    |
+|Roebling, Mr. Washington Augustus II                                 |50.4958 |
+|Rosblom, Mrs. Viktor (Helena Wilhelmina)                             |20.2125 |
+|Ross, Mr. John Hugo                                                  |40.125  |
+|Rothes, the Countess. of (Lucy Noel Martha Dyer-Edwards)             |86.5    |
+|Rothschild, Mrs. Martin (Elizabeth L. Barrett)                       |59.4    |
+|Rouse, Mr. Richard Henry                                             |8.05    |
+|Saad, Mr. Khalil                                                     |7.225   |
+|Salonen, Mr. Johan Werner                                            |7.925   |
+|Sawyer, Mr. Frederick Charles                                        |8.05    |
+|Sedgwick, Mr. Charles Frederick Waddington                           |13.0    |
+|Serepeca, Miss. Augusta                                              |31.0    |
+|Seward, Mr. Frederic Kimber                                          |26.55   |
+|Sharp, Mr. Percival James R                                          |26.0    |
+|Sheerlinck, Mr. Jan Baptist                                          |9.5     |
+|Shelley, Mrs. William (Imanita Parrish Hall)                         |26.0    |
+|Shutes, Miss. Elizabeth W                                            |153.4625|
+|Silverthorne, Mr. Spencer Victor                                     |26.2875 |
+|Silvey, Mr. William Baird                                            |55.9    |
+|Silvey, Mrs. William Baird (Alice Munger)                            |55.9    |
+|Simonius-Blumer, Col. Oberst Alfons                                  |35.5    |
+|Sinkkonen, Miss. Anna                                                |13.0    |
+|Sivic, Mr. Husein                                                    |7.8958  |
+|Sjostedt, Mr. Ernst Adolf                                            |13.5    |
+|Skoog, Mr. Wilhelm                                                   |27.9    |
+|Skoog, Mrs. William (Anna Bernhardina Karlsson)                      |27.9    |
+|Slayter, Miss. Hilda Mary                                            |12.35   |
+|Slemen, Mr. Richard James                                            |10.5    |
+|Sloper, Mr. William Thompson                                         |35.5    |
+|Smart, Mr. John Montgomery                                           |26.55   |
+|Smith, Miss. Marion Elsie                                            |13.0    |
+|Smith, Mr. James Clinch                                              |30.6958 |
+|Sobey, Mr. Samuel James Hayden                                       |13.0    |
+|Somerton, Mr. Francis William                                        |8.05    |
+|Spedden, Mrs. Frederic Oakley (Margaretta Corning Stone)             |134.5   |
+|Stahelin-Maeglin, Dr. Max                                            |30.5    |
+|Stankovic, Mr. Ivan                                                  |8.6625  |
+|Stead, Mr. William Thomas                                            |26.55   |
+|Stephenson, Mrs. Walter Bertram (Martha Eustis)                      |78.2667 |
+|Stone, Mrs. George Nelson (Martha Evelyn)                            |80.0    |
+|Stranden, Mr. Juho                                                   |7.925   |
+|Strom, Mrs. Wilhelm (Elna Matilda Persson)                           |10.4625 |
+|Sundman, Mr. Johan Julian                                            |7.925   |
+|Sutehall, Mr. Henry Jr                                               |7.05    |
+|Sutton, Mr. Frederick                                                |32.3208 |
+|Svensson, Mr. Johan                                                  |7.775   |
+|Swift, Mrs. Frederick Joel (Margaret Welles Barron)                  |25.9292 |
+|Taussig, Mr. Emil                                                    |79.65   |
+|Taussig, Mrs. Emil (Tillie Mandelbaum)                               |79.65   |
+|Taylor, Mr. Elmer Zebley                                             |52.0    |
+|Thayer, Mr. John Borland                                             |110.8833|
+|Thayer, Mrs. John Borland (Marian Longstreth Morris)                 |110.8833|
+|Theobald, Mr. Thomas Leonard                                         |8.05    |
+|Tikkanen, Mr. Juho                                                   |7.925   |
+|Tomlin, Mr. Ernest Portage                                           |8.05    |
+|Toomey, Miss. Ellen                                                  |10.5    |
+|Torber, Mr. Ernst William                                            |8.05    |
+|Tornquist, Mr. William Henry                                         |0.0     |
+|Touma, Mrs. Darwis (Hanne Youssef Razi)                              |15.2458 |
+|Trout, Mrs. William H (Jessie L)                                     |12.65   |
+|Turcin, Mr. Stjepan                                                  |7.8958  |
+|Turkula, Mrs. (Hedwig)                                               |9.5875  |
+|Turpin, Mr. William John Robert                                      |21.0    |
+|Turpin, Mrs. William John Robert (Dorothy Ann Wonnacott)             |21.0    |
+|Uruchurtu, Don. Manuel E                                             |27.7208 |
+|Van Impe, Mr. Jean Baptiste                                          |24.15   |
+|Van Impe, Mrs. Jean Baptiste (Rosalie Paula Govaert)                 |24.15   |
+|Van der hoef, Mr. Wyckoff                                            |33.5    |
+|Vande Velde, Mr. Johannes Joseph                                     |9.5     |
+|Vande Walle, Mr. Nestor Cyriel                                       |9.5     |
+|Vanden Steen, Mr. Leo Peter                                          |9.5     |
+|Vander Cruyssen, Mr. Victor                                          |9.0     |
+|Vander Planke, Mrs. Julius (Emelia Maria Vandemoortele)              |18.0    |
+|Walker, Mr. William Anderson                                         |34.0208 |
+|Ward, Miss. Anna                                                     |512.3292|
+|Warren, Mrs. Frank Manley (Anna Sophia Atkinson)                     |75.25   |
+|Webber, Miss. Susan                                                  |13.0    |
+|Weir, Col. John                                                      |26.55   |
+|Weisz, Mrs. Leopold (Mathilde Francoise Pede)                        |26.0    |
+|West, Mr. Edwy Arthur                                                |27.75   |
+|West, Mrs. Edwy Arthur (Ada Mary Worth)                              |27.75   |
+|Wheadon, Mr. Edward H                                                |10.5    |
+|White, Mr. Percival Wayland                                          |77.2875 |
+|Wick, Miss. Mary Natalie                                             |164.8667|
+|Wick, Mrs. George Dennick (Mary Hitchcock)                           |164.8667|
+|Widegren, Mr. Carl/Charles Peter                                     |7.75    |
+|Widener, Mr. Harry Elkins                                            |211.5   |
+|Wilhelms, Mr. Charles                                                |13.0    |
+|Williams, Mr. Charles Duane                                          |61.3792 |
+|Williams, Mr. Leslie                                                 |16.1    |
+|Wright, Mr. George                                                   |26.55   |
+|Yasbeck, Mr. Antoni                                                  |14.4542 |
+|Young, Miss. Marie Grice                                             |135.6333|
+|Youseff, Mr. Gerious                                                 |7.225   |
+|Zimmerman, Mr. Leo                                                   |7.875   |
+|de Messemaeker, Mrs. Guillaume Joseph (Emma)                         |17.4    |
+|de Mulder, Mr. Theodore                                              |9.5     |
+|del Carlo, Mr. Sebastiano                                            |27.7208 |
+|van Billiard, Mr. Austin Blyler                                      |14.5    |
++---------------------------------------------------------------------+--------+
+
+Part (b) - Runtime: 0.45807695388793945 seconds
+Part (c) - Average fare by survival status:
++--------+------------------+
+|Survived|           AvgFare|
++--------+------------------+
+|       0|22.117886885245877|
+|       1| 48.39540760233917|
++--------+------------------+
+
+Part (c) - Average fare for survivors: 48.39540760233917
+Part (c) - Average fare for non-survivors: 22.117886885245877
+Part (c) - Difference in average fares: 26.277520717093292
+Part (c) - Conclusion: The average fare prices are noticeably different.
+Part (c) - Runtime: 0.9787836074829102 seconds

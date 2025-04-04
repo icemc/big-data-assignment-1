@@ -1,0 +1,19 @@
+JobName,JobType,InputSpec,StartTime,EndTime,ElapsedTime 
+HadoopWordCount,RawInput,AA,04/04/2025  1:49:02.64, 1:49:20.69,18.005 
+HadoopWordCount,RawInput,AA,AB,04/04/2025  1:50:10.79, 1:50:47.38,36.959 
+HadoopWordCount,RawInput,AA,AB,AC,04/04/2025  1:52:16.07, 1:53:05.30,49.023 
+HadoopWordPairs,RawInput,AA,04/04/2025  1:49:26.67, 1:49:52.38,25.971 
+HadoopWordPairs,RawInput,AA,AB,04/04/2025  1:50:54.78, 1:51:48.48,53.970 
+HadoopWordPairs,RawInput,AA,AB,AC,04/04/2025  1:53:12.39, 1:54:29.90,77.051 
+NumberWordPairsTop,Dependent,HadoopWordPairs/AA-AA,04/04/2025  1:50:04.65, 1:50:10.78,6.013 
+NumberWordPairsTop,Dependent,HadoopWordPairs/AA-AB,04/04/2025  1:52:07.86, 1:52:16.07,8.921 
+NumberWordPairsTop,Dependent,HadoopWordPairs/AA-AC,04/04/2025  1:54:59.57, 1:55:10.99,11.042 
+WordCountFilter,Dependent,HadoopWordCount/AA-AA,04/04/2025  1:49:20.70, 1:49:23.68,2.998 
+WordCountFilter,Dependent,HadoopWordCount/AA-AB,04/04/2025  1:50:47.40, 1:50:51.61,4.021 
+WordCountFilter,Dependent,HadoopWordCount/AA-AC,04/04/2025  1:53:05.31, 1:53:09.38,4.007 
+WordCountTop,Dependent,HadoopWordCount/AA-AA,04/04/2025  1:49:23.70, 1:49:26.66,2.996 
+WordCountTop,Dependent,HadoopWordCount/AA-AB,04/04/2025  1:50:51.65, 1:50:54.76,3.011 
+WordCountTop,Dependent,HadoopWordCount/AA-AC,04/04/2025  1:53:09.40, 1:53:12.39,2.998 
+WordPairsFilter,Dependent,HadoopWordPairs/AA-AA,04/04/2025  1:49:52.39, 1:50:04.63,12.024 
+WordPairsFilter,Dependent,HadoopWordPairs/AA-AB,04/04/2025  1:51:48.49, 1:52:07.84,19.035 
+WordPairsFilter,Dependent,HadoopWordPairs/AA-AC,04/04/2025  1:54:29.91, 1:54:59.55,29.964 

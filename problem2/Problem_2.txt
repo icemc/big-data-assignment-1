@@ -1,0 +1,97 @@
+
+1. Hardware Setup
+-----------------
+
+OS Name:	                        Ubuntu 24.04.2 LTS x86_64
+System Model:	                    Victus by HP Gaming Laptop 15-fa1xxx
+Processor:	                        13th Gen Intel i7-13620H (16) @ 4.700GHz
+GPU:                                NVIDIA GeForce RTX 4050 Max-Q / Mobile
+Installed Physical Memory (RAM):	16.0 GB
+
+
+2. Compile all Java classes and build jar file (classes and jar file will be created in output directory)
+---------------------------------------------------------------------------------------------------------
+
+- Windows
+    Navigate to scripts directory and run
+    `compile.cmd`
+    `build.cmd`
+
+- Linux
+    Navigate to scripts directory and run
+        `./build.sh`
+
+3. Approach
+-----------
+
+ - Run SparkWordCount on raw input. This will perform map reduce to emit the total count for both numbers and words found in the input files (wikipedia articles)
+ - Run SparkWordPairs on raw input. This will perform map reduce to emit the total count for word pairs (word are either normal words or numbers) found in the input files (wikipedia articles)
+
+ - The output for these jobs will be used as input files for the jobs in section b. These jobs are described below
+
+ - (b.1) WordCountFilter: Finds all individual words (not numbers) with a total count of exactly 1,000
+ - (b.2) WordPairsFilter: Finds all word pairs (not numbers) with a total count of exactly 1,000
+ - (b.3) WordCountTop: Finds the top-100 most frequent individual words (not numbers)
+ - (b.4) WordNumberPairsTop:  Find the top-100 most frequent pairs of tokens, where the first token is a number and the second token is a word
+
+ - C: The run section of this document describes how we can run these jobs incrementally. That is, include one more subdirectory at each step and measure the runtime of your MapReduce jobs until completion
+
+
+4. Running the jobs.
+--------------------
+
+Prerequisites:
+1. Input Data Preparation:
+   - Place Wikipedia article files (AA, AB, AC, etc.) in the designated input directory
+   - Alternative: Modify the input path in configuration:
+     # Edit either:
+     # scripts/run.cmd (Windows)
+     # scripts/run.sh (Linux)
+     base_input_path = "CUSTOM/INPUT/PATH/"
+
+Execution Commands:
+Windows:
+cd scripts
+run-all.cmd
+
+Linux:
+cd scripts
+chmod +x run-all.sh  # Set execute permission if needed
+./run-all.sh
+
+Output Management:
+Runtime Statistics:
+- Individual job metrics stored in 'scripts/stats/' directory
+- Consolidated data in 'all-stats.csv'
+
+Job Results:
+- Available in 'output/hadoop/'
+- Organized by job type and input parameters
+
+5. Sample Job results runtime statistics (Sample output See all-stats.csv for complete example)
+-----------------------------------------------------------------------------------------------
+
+JobName           JobType    InputSpec                  StartTime                   EndTime                 ElapsedTime
+----------------  ---------  -------------------------  --------------------------  ----------------------  -----------
+SparkWordCount    RawInput   AA                         2025-04-03 18:12:29.144     2025-04-03 18:12:34.737   5.590
+SparkWordCount    RawInput   AA,AB                      2025-04-03 18:12:59.089     2025-04-03 18:13:07.287   8.199
+SparkWordCount    RawInput   AA,AB,AC                   2025-04-03 18:13:40.267     2025-04-03 18:13:52.421  12.154
+SparkWordCount    RawInput   AA,AB,AC,AD                2025-04-03 18:14:40.263     2025-04-03 18:14:56.350  16.088
+SparkWordCount    RawInput   AA,AB,AC,AD,AE             2025-04-03 18:15:48.991     2025-04-03 18:16:08.308  19.317
+SparkWordCount    RawInput   AA,AB,AC,AD,AE,AF          2025-04-03 18:17:14.595     2025-04-03 18:17:37.003  22.408
+SparkWordCount    RawInput   AA,AB,AC,AD,AE,AF,AG       2025-04-03 18:18:45.963     2025-04-03 18:19:11.631  25.668
+SparkWordCount    RawInput   AA,AB,AC,AD,AE,AF,AG,AH    2025-04-03 18:20:29.928     2025-04-03 18:21:00.131  30.203
+SparkWordPairs    RawInput   AA                         2025-04-03 18:12:40.092     2025-04-03 18:12:49.375   9.283
+SparkWordPairs    RawInput   AA,AB                      2025-04-03 18:13:12.784     2025-04-03 18:13:27.483  14.699
+SparkWordPairs    RawInput   AA,AB,AC                   2025-04-03 18:13:58.812     2025-04-03 18:14:23.506  24.694
+SparkWordPairs    RawInput   AA,AB,AC,AD                2025-04-03 18:15:02.249     2025-04-03 18:15:30.714  28.465
+WordCountFilter   Dependent  SparkWordCount/AA-AA       2025-04-03 18:12:34.742     2025-04-03 18:12:37.444   2.702
+WordCountFilter   Dependent  SparkWordCount/AA-AB       2025-04-03 18:13:07.293     2025-04-03 18:13:09.979   2.686
+WordCountTop      Dependent  SparkWordCount/AA-AA       2025-04-03 18:12:37.449     2025-04-03 18:12:40.087   2.639
+WordCountTop      Dependent  SparkWordCount/AA-AB       2025-04-03 18:13:09.983     2025-04-03 18:13:12.778   2.795
+WordNumberPairsTop Dependent SparkWordPairs/AA-AA       2025-04-03 18:12:55.190     2025-04-03 18:12:59.083   3.892
+WordNumberPairsTop Dependent SparkWordPairs/AA-AB       2025-04-03 18:13:36.168     2025-04-03 18:13:40.261   4.094
+WordPairsFilter   Dependent  SparkWordPairs/AA-AA       2025-04-03 18:12:49.380     2025-04-03 18:12:55.184   5.804
+WordPairsFilter   Dependent  SparkWordPairs/AA-AB       2025-04-03 18:13:27.488     2025-04-03 18:13:36.162   8.674
+
+

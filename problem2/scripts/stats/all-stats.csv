@@ -1,0 +1,19 @@
+JobName,JobType,InputSpec,StartTime,EndTime,ElapsedTime 
+SparkWordCount,RawInput,AA,04/04/2025  1:44:42.36, 1:44:58.08,15.972 
+SparkWordCount,RawInput,AA,AB,04/04/2025  1:45:49.35, 1:46:20.07,30.973 
+SparkWordCount,RawInput,AA,AB,AC,04/04/2025  1:47:37.20, 1:48:23.99,46.079 
+SparkWordPairs,RawInput,AA,04/04/2025  1:45:10.21, 1:45:32.44,22.023 
+SparkWordPairs,RawInput,AA,AB,04/04/2025  1:46:32.90, 1:47:15.79,42.989 
+SparkWordPairs,RawInput,AA,AB,AC,04/04/2025  1:48:36.39, 1:49:41.57,65.017 
+WordCountFilter,Dependent,SparkWordCount/AA-AA,04/04/2025  1:44:58.09, 1:45:04.19,6.010 
+WordCountFilter,Dependent,SparkWordCount/AA-AB,04/04/2025  1:46:20.08, 1:46:26.39,6.031 
+WordCountFilter,Dependent,SparkWordCount/AA-AC,04/04/2025  1:48:24.00, 1:48:29.92,5.092 
+WordCountTop,Dependent,SparkWordCount/AA-AA,04/04/2025  1:45:04.21, 1:45:10.21,6.000 
+WordCountTop,Dependent,SparkWordCount/AA-AB,04/04/2025  1:46:26.44, 1:46:32.88,6.044 
+WordCountTop,Dependent,SparkWordCount/AA-AC,04/04/2025  1:48:29.93, 1:48:36.39,6.945 
+WordNumberPairsTop,Dependent,SparkWordPairs/AA-AA,04/04/2025  1:45:41.28, 1:45:49.33,8.005 
+WordNumberPairsTop,Dependent,SparkWordPairs/AA-AB,04/04/2025  1:47:29.23, 1:47:37.18,7.995 
+WordNumberPairsTop,Dependent,SparkWordPairs/AA-AC,04/04/2025  1:49:56.29, 1:50:04.11,7.982 
+WordPairsFilter,Dependent,SparkWordPairs/AA-AA,04/04/2025  1:45:32.46, 1:45:41.25,8.979 
+WordPairsFilter,Dependent,SparkWordPairs/AA-AB,04/04/2025  1:47:15.81, 1:47:29.18,13.937 
+WordPairsFilter,Dependent,SparkWordPairs/AA-AC,04/04/2025  1:49:41.59, 1:49:56.28,14.970 
